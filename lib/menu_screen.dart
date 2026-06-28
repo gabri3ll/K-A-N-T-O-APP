@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'letrasol_screen.dart';
+import 'seccion_construccion_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -17,58 +19,122 @@ class MenuScreen extends StatelessWidget {
           ),
 
           // 2. Contenido Desplazable (Los 5 Mundos en Zigzag)
-          Positioned.fill(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.only(top: 60, bottom: 180), // Espacio para que el último mundo no quede tapado por el navbar
-              child: Column(
-                children: [
-                  // Mundo 5 (Superior) - Alineado a la derecha
-                  _buildMundoItem(
-                    imagePath: 'assets/images/interfazPrincipal/Mundos/Misteria.png',
-                    alignment: Alignment.centerRight,
-                    padding: const EdgeInsets.only(right: 30),
-                    onTap: () => _onMundoSelected(context, 5),
-                  ),
-                  const SizedBox(height: 40),
+          // 2. Contenido Desplazable (Los 5 Mundos en Zigzag + Avatar integrado)
+Positioned.fill(
+  child: SingleChildScrollView(
+    padding: const EdgeInsets.only(top: 60, bottom: 180),
+    child: Column(
+      children: [
 
-                  // Mundo 4 - Alineado a la izquierda
-                  _buildMundoItem(
-                    imagePath: 'assets/images/interfazPrincipal/Mundos/Palabral.png',
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.only(left: 30),
-                    onTap: () => _onMundoSelected(context, 4),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, bottom: 15),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // El Personaje (Avatar de Kanto)
+                Container(
+                  width: 95,
+                  height: 95,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFF00BEF2).withOpacity(0.4),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 40),
-
-                  // Mundo 3 - Centro/Derecha
-                  _buildMundoItem(
-                    imagePath: 'assets/images/interfazPrincipal/Mundos/Cuentaria.png',
-                    alignment: Alignment.centerRight,
-                    padding: const EdgeInsets.only(right: 40),
-                    onTap: () => _onMundoSelected(context, 3),
+                  child: Image.asset(
+                    'assets/images/Personaje y patrón/Personaje pose 4.png',
+                    fit: BoxFit.contain,
                   ),
-                  const SizedBox(height: 40),
-
-                  // Mundo 2 - Centro/Izquierda
-                  _buildMundoItem(
-                    imagePath: 'assets/images/interfazPrincipal/Mundos/Nubelia.png',
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.only(left: 40),
-                    onTap: () => _onMundoSelected(context, 2),
+                ),
+                const SizedBox(width: 10),
+                
+                // Globo de texto / Burbuja de diálogo mística
+                Container(
+                  margin: const EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  constraints: const BoxConstraints(maxWidth: 180),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.95),
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(18),
+                      bottomLeft: Radius.circular(18),
+                      bottomRight: Radius.circular(18),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFF6A11BB),
+                      width: 2,
+                    ),
                   ),
-                  const SizedBox(height: 40),
-
-                  // Mundo 1 (Inferior) - Centro/Derecha
-                  _buildMundoItem(
-                    imagePath: 'assets/images/interfazPrincipal/Mundos/Letrasol.png',
-                    alignment: Alignment.centerRight,
-                    padding: const EdgeInsets.only(right: 30),
-                    onTap: () => _onMundoSelected(context, 1),
+                  child: const Text(
+                    '¡Desliza hacia arriba para descubrir más mundos!',
+                    style: TextStyle(
+                      fontFamily: 'Comfortaa',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                      color: Color(0xFF181CB3),
+                      height: 1.3,
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
+        ),
+        // ==========================================
+        // Mundo 5 (Superior)
+        _buildMundoItem(
+          imagePath: 'assets/images/interfazPrincipal/Mundos/Letrasol.png',
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 30),
+          onTap: () => _onMundoSelected(context, 5),
+        ),
+        const SizedBox(height: 40),
+
+        // Mundo 4
+        _buildMundoItem(
+          imagePath: 'assets/images/interfazPrincipal/Mundos/Palabral.png',
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.only(left: 30),
+          onTap: () => _onMundoSelected(context, 4),
+        ),
+        const SizedBox(height: 40),
+
+        // Mundo 3
+        _buildMundoItem(
+          imagePath: 'assets/images/interfazPrincipal/Mundos/Cuentaria.png',
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 40),
+          onTap: () => _onMundoSelected(context, 3),
+        ),
+        const SizedBox(height: 40),
+
+        // Mundo 2
+        _buildMundoItem(
+          imagePath: 'assets/images/interfazPrincipal/Mundos/Nubelia.png',
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.only(left: 40),
+          onTap: () => _onMundoSelected(context, 2),
+        ),
+        const SizedBox(height: 40),
+
+        // Mundo 1 (Inferior)
+        _buildMundoItem(
+          imagePath: 'assets/images/interfazPrincipal/Mundos/Misteria.png',
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 30),
+          onTap: () => _onMundoSelected(context, 1),
+        ),
+      ],
+    ),
+  ),
+),
 
           // 3. Navbar Lunar Flotante (Fijo abajo)
           Positioned(
@@ -126,15 +192,15 @@ class MenuScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _buildNavbarButton(
-                iconPath: 'assets/images/interfazPrincipal/Iconos de App/Icono_de_ajustes.png',
+                iconPath: 'assets/images/interfazPrincipal/Iconos_de_App/Icono_de_ajustes.png',
                 label: 'AJUSTES',
               ),
               _buildNavbarButton(
-                iconPath: 'assets/images/interfazPrincipal/Iconos de App/Icono_Home.png',
+                iconPath: 'assets/images/interfazPrincipal/Iconos_de_App/Icono_Home.png',
                 label: 'INICIO',
               ),
               _buildNavbarButton(
-                iconPath: 'assets/images/interfazPrincipal/Iconos de App/Icono_Logros.png',
+                iconPath: 'assets/images/interfazPrincipal/Iconos_de_App/Icono_Logros.png',
                 label: 'LOGROS',
               ),
             ],
@@ -175,7 +241,20 @@ class MenuScreen extends StatelessWidget {
   }
 
   void _onMundoSelected(BuildContext context, int mundoId) {
-    // Aquí gestionaremos la navegación a los cuentos de cada mundo
-    print("Mundo $mundoId seleccionado");
+    if (mundoId == 5) {
+      // Navegamos hacia la interfaz de Letrasol
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const LetrasolScreen()),
+      );
+    }
+
+    if (mundoId != 5) {
+      // Navegamos hacia la interfaz de Letrasol
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SeccionConstruccionScreen()),
+      );
+    }
   }
 }

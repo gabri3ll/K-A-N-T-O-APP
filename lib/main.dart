@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu_screen.dart';
+import 'splash_screen.dart';
 
 void main() {
   runApp(const KantoApp());
@@ -18,7 +18,7 @@ class KantoApp extends StatelessWidget {
         fontFamily: 'VolteRounded',
         primaryColor: const Color(0xFF6A11BB), // Morado de la paleta
       ),
-      home: const MenuScreen(),
+      home: const SplashScreen(),
     );
   }
 }

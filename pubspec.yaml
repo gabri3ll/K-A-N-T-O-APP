@@ -38,6 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -45,6 +46,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/Logo y variaciones/Logo principal.png" # <-- Pon la ruta exacta de tu PNG personalizado
+  min_sdk_android: 21 # compatible con tu entorno actual
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -60,14 +66,27 @@ flutter:
   assets:
     - assets/images/interfazPrincipal/Fondo_de_mapa.png
     - assets/images/interfazPrincipal/navbar_lunar.png
-    - assets/images/interfazPrincipal/Iconos de App/Icono_de_ajustes.png
-    - assets/images/interfazPrincipal/Iconos de App/Icono_Home.png
-    - assets/images/interfazPrincipal/Iconos de App/Icono_Logros.png
+    - assets/images/interfazPrincipal/Iconos_de_App/Icono_de_ajustes.png
+    - assets/images/interfazPrincipal/Iconos_de_App/Icono_Home.png
+    - assets/images/interfazPrincipal/Iconos_de_App/Icono_Logros.png
     - assets/images/interfazPrincipal/Mundos/Cuentaria.png
     - assets/images/interfazPrincipal/Mundos/Letrasol.png
     - assets/images/interfazPrincipal/Mundos/Misteria.png
     - assets/images/interfazPrincipal/Mundos/Nubelia.png
     - assets/images/interfazPrincipal/Mundos/Palabral.png
+    - assets/images/Personaje y patrón/Personaje pose 1.png
+    - assets/images/Personaje y patrón/Personaje pose 2.png
+    - assets/images/Personaje y patrón/Personaje pose 3.png
+    - assets/images/Personaje y patrón/Personaje pose 4.png
+    - assets/images/Cuento 1 mundo 1/Escenario 1- el colibri.png
+    - assets/images/Cuento 1 mundo 1/Escenario 2- el colibri.png
+    - assets/images/Cuento 1 mundo 1/Escenario 3- el colibri.png
+    - assets/images/Cuento 1 mundo 1/Fondo de El colibri.png
+    - assets/images/Cuento 1 mundo 1/imagen mundo 1 Letrasol.png
+    - assets/images/Cuento 1 mundo 1/Pantalla 1 el colirbri copia.png
+    - assets/images/Cuento 1 mundo 1/Pantalla 2 El colibri.png
+    - assets/images/Cuento 1 mundo 1/Pantalla 3 QUIZ el colibri.png
+    - assets/images/Logo y variaciones/Logo principal.png
 
   # Registro de tipografías oficiales de la guía de estilos
   fonts:
@@ -109,3 +128,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  
